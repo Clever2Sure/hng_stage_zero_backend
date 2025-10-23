@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: hng-stage-zero-backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn stage_zero_backend.wsgi"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: stage_zero_backend.settings
